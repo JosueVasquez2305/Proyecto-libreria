@@ -211,3 +211,40 @@ img {
     border-radius: 10px;           /* Para que combine con tus columnas */
     box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Un toque de profundidad */
 }
+
+#contenedor-final { /* El que creaste hoy */
+    display: flex !important;
+    flex-direction: row !important;
+    
+    /* ESTA ES LA CLAVE PARA QUE SE ABRAN: */
+    justify-content: space-between !important; 
+    
+    width: 95% !important;
+    margin: 0 auto !important; /* Centra el contenedor en la pantalla */
+    gap: 0 !important;         /* Quitamos el gap para que el 'space-between' haga su magia */
+}
+#contenedor-final { /* El que creaste hoy */
+    display: flex !important;
+    flex-direction: row !important;
+    
+    /* ESTA ES LA CLAVE PARA QUE SE ABRAN: */
+    justify-content: space-between !important; 
+    
+    width: 95% !important;
+    margin: 0 auto !important; /* Centra el contenedor en la pantalla */
+    gap: 0 !important;         /* Quitamos el gap para que el 'space-between' haga su magia */
+}
+
+#columna-ganadores, #columna-descartes {
+    width: 100% !important; 
+    
+    /* CONTROL DE ALTURA */
+    height: 35vh !important;    /* Cada columna ocupará el 35% de la altura de la pantalla */
+    overflow-y: auto !important; /* Si hay muchos nombres, sale scroll interno */
+    
+    /* ESTÉTICA */
+    padding: 15px !important;
+    border: 2px solid #333 !important;
+    border-radius: 8px !important;
+    background-color: #1a1a1a !important; /* Un gris un poco más claro que el fondo */
+}
