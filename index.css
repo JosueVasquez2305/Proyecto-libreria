@@ -4,17 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
-    background-image: url('assets/afiche.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    /* Esto asegura que el body crezca si hay mucho contenido */
-    min-height: 100vh; 
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-}
+
 
 /* Forzamos al footer a ser transparente y quitar fondos extra */
 footer {
@@ -65,17 +55,7 @@ body {
     margin: 40px 0;
 }
  
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #121212; /* Un gris muy claro para que no canse la vista */
-    width: 100%;
-    max-width: none;
-}
+
 
 #resultado {
     font-size: 3rem;
@@ -87,7 +67,8 @@ body {
     footer, .tablero, div {
     border: none;           /* Quita cualquier línea de borde */
     outline: none;          /* Quita el resalte al hacer clic */
-    box-shadow: none;       /* Quita sombras que hacen que parezca un sticker */
+    box-shadow: none;       /* Quita sombras
+ que hacen que parezca un sticker */
     background-color: transparent;
 }
 
@@ -115,7 +96,7 @@ img {
     gap: 15px !important;
 }
 
-#columna-ganadores, #columna-ganadores {
+#columna-ganadores, #columna-descartes {
     width: 100% !important;/* Cada una ocupa casi la mitad del espacio */
     padding: 15px;
     border: 1px solid #333; /* Un borde muy sutil para que se distingan del fondo */
@@ -159,12 +140,6 @@ img {
     /* Aquí le puedes poner la opacidad que mencionaste */
 }
 
-#tablero {
-    display: flex !important;
-    flex-direction: column !important; /* ¡AQUÍ ESTÁ EL CAMBIO! Una columna sobre la otra */
-    width: 45% !important; 
-    gap: 20px;
-}
 
 #columna-ganadores, #columna-descartes {
     width: 100% !important; /* Ahora ocupan todo el ancho de su mitad derecha */
@@ -248,3 +223,30 @@ img {
     border-radius: 8px !important;
     background-color: #1a1a1a !important; /* Un gris un poco más claro que el fondo */
 }
+
+/* 1. EL CONTENEDOR QUE MANDA (TU ARMONÍA) */
+#contenedor-final { 
+    display: flex !important;
+    flex-direction: row !important; /* Fuerza a que estén uno al lado del otro */
+    justify-content: space-between !important; 
+    align-items: flex-start !important; /* Alinea arriba para que no floten */
+    width: 95% !important;
+    margin: 20px auto !important;
+}
+
+/* 2. EL AFICHE (LADO IZQUIERDO) */
+#afiche-principal {
+    width: 45% !important;   
+    max-height: 70vh !important; 
+    object-fit: contain !important; /* Evita que se estire feo */
+    border-radius: 10px;
+}
+
+/* 3. EL TABLERO DE COLUMNAS (LADO DERECHO) */
+#tablero {
+    width: 45% !important; 
+    display: flex !important;
+    flex-direction: column !important; /* Pone una columna sobre la otra en su mitad */
+    gap: 20px !important;
+}
+
