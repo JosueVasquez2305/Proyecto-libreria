@@ -1,8 +1,7 @@
-/* Obligamos a la raíz a medir toda la pantalla */
-html, body {
-    height: 100%;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -19,7 +18,7 @@ body {
 
 /* Forzamos al footer a ser transparente y quitar fondos extra */
 footer {
-    background: rgba(0, 0, 0, 0.4);
+    background: #121212;
     margin-top: auto; /* Esto lo empuja al fondo */
 }
 
@@ -40,11 +39,11 @@ main {
     justify-content: space-around; /* Esto separa las dos columnas */
     padding: 20px;
     /* Si quieres que las listas tengan un fondo semi-transparente para que se lean mejor: */
-    background-color: rgba(0, 0, 0, 0.4); 
+    background-color: transparent; 
 }
 body {
     /* Un color de fondo sólido, muy elegante y oscuro */
-    background-color: #0f0f0f; 
+    background-color: #121212; 
     
     /* En lugar de una imagen, un degradado sutil que nace del centro */
     background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
@@ -65,4 +64,150 @@ body {
     text-shadow: 0 0 20px rgba(255, 0, 127, 0.5); /* Efecto neón */
     margin: 40px 0;
 }
+ 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #121212; /* Un gris muy claro para que no canse la vista */
+    width: 100%;
+    max-width: none;
+}
 
+#resultado {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e74c3c; /* Un rojo para que resalte el ganador */
+    margin-top: 20px;
+}
+
+    footer, .tablero, div {
+    border: none;           /* Quita cualquier línea de borde */
+    outline: none;          /* Quita el resalte al hacer clic */
+    box-shadow: none;       /* Quita sombras que hacen que parezca un sticker */
+    background-color: transparent;
+}
+
+h1 {
+    margin-top: 20px; /* Le das tú el espacio exacto para que se vea */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 20px auto; /* Lo centra y le da aire arriba y abajo */
+    max-width: 150px;  /* Controlas que no sea gigante */
+    opacity: 0.5;      /* Lo haces sutil */
+}
+
+#tablero {
+    display: flex !important;         /* Esto pone las dos columnas una a la par de la otra */
+    justify-content: space-between !important; /* Esto empuja una a la izquierda y otra a la derecha */
+    width: 45% !important;            /* Para que no queden pegadas a los bordes físicos de la pantalla */
+    margin: 20px auto;     /* Las separa un poco del título y las centra */
+    border: solid lime;
+    min-width: 95vw !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+}
+
+#columna-ganadores, #columna-ganadores {
+    width: 100% !important;/* Cada una ocupa casi la mitad del espacio */
+    padding: 15px;
+    border: 1px solid #333; /* Un borde muy sutil para que se distingan del fondo */
+    border-radius: 8px;
+    min-height: 120px !important; /* Para que aunque estén vacías, tengan cuerpo */
+    margin: 0  !important;
+}
+#columna-descartes { background-color: red; }
+#columna-ganadores { background-color: blue; }
+
+#afiche-principal {
+    display: block;          /* Lo convierte en una caja para poder usar márgenes */
+    max-width: 600px;        /* Un tamaño generoso para que se lea la información */
+    width: 80%;              /* Si la pantalla es pequeña, se ajusta automáticamente */
+    margin: 30px auto;       /* Lo separa del título (arriba) y del tablero (abajo) y lo centra */
+    border: 2px solid #333;  /* Un borde sutil para que resalte del fondo oscuro */
+    border-radius: 10px;      /* Bordes redondeados para un toque moderno */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Una sombra suave para que "flote" */
+}
+
+.numero-sorteado {
+    font-size: 80px;         /* Un tamaño que nadie pueda ignorar */
+    color: #f1c40f;          /* Un color dorado o llamativo */
+    text-shadow: 0 0 20px rgba(241, 196, 15, 0.5); /* Que brille */
+    transition: all 0.5s ease;
+}
+
+#pantalla-dividida {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 95% !important;
+    margin: 20px auto !important;
+    gap: 20px; /* Espacio entre el afiche y las columnas */
+}
+
+#afiche-principal {
+    width: 45% !important; /* El afiche toma casi la mitad de la pantalla */
+    max-width: 500px;
+    height: auto;
+    /* Aquí le puedes poner la opacidad que mencionaste */
+}
+
+#tablero {
+    display: flex !important;
+    flex-direction: column !important; /* ¡AQUÍ ESTÁ EL CAMBIO! Una columna sobre la otra */
+    width: 45% !important; 
+    gap: 20px;
+}
+
+#columna-ganadores, #columna-descartes {
+    width: 100% !important; /* Ahora ocupan todo el ancho de su mitad derecha */
+    min-height: 150px;
+}
+
+#contenedor-magico {
+    display: flex !important;
+    flex-direction: row !important; /* Fuerza la fila */
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 95% !important;
+    margin: 0 auto !important;
+}
+
+#afiche-principal {
+    flex-basis: 45% !important; /* Ocupa el 45% de la izquierda */
+    max-width: 45% !important;
+    height: auto;
+}
+
+#tablero {
+    flex-basis: 45% !important; /* Ocupa el 45% de la derecha */
+    display: flex !important;
+    flex-direction: column !important; /* Tus columnas van una sobre otra */
+    gap: 20px !important;
+}
+#contenedor-magico { /* O el nombre que le hayas puesto */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important; /* Deja espacio igualado a los lados y en medio */
+    align-items: flex-start !important;      /* Alinea ambos arriba */
+    width: 95% !important;
+    margin: 20px auto !important;
+    gap: 30px;                                /* Crea un pasillo de 30px entre el afiche y las columnas */
+}
+#afiche-principal {
+    width: 45% !important;   /* Mantiene su ancho para no apretar a las columnas */
+    
+    /* ESTA ES LA CLAVE: */
+    max-height: 70vh !important; /* 'vh' es el alto de la pantalla. Pruébalo entre 60vh y 80vh */
+    
+    object-fit: contain !important; /* Esto asegura que la imagen se achique para caber en ese alto, SIN estirarse ni deformarse */
+    border-radius: 10px;           /* Para que combine con tus columnas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Un toque de profundidad */
+}
