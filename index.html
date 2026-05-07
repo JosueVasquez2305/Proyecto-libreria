@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gran Rifa - Roca Eterna</title>
+    <link rel="stylesheet" href="index.css">
+<link rel="icon" href="assets/logo_grande.jpeg" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <h1>Rifa Especial Día de la Madre</h1>
+        <img src="assets/logo_grande.jpeg" id="logo-grande" alt="Logo Roca Eterna">
+        </header>
+
+    <main>
+        <div id="configuracion">
+            <label for="caja">Total de números participando:</label>
+            <input type="number" id="caja" placeholder="">
+        </div>
+
+        <div id="pantalla-rifa">
+            <div id="cuenta-regresiva"></div> <div id="numero-sorteado">?</div> </div>
+
+        <div id="botones">
+            <button type="button" id="btn-generar">Generar Número</button>
+            <button type="button" id="btn-confirmar">Confirmar Ganador</button>
+            <button type="button" id="btn-descartar">No Presente / No Vendido</button>
+            <button type="button" id="btn-reset">Resetear Rifa</button>
+        </div>
+
+        <section id="tablero">
+            <div id="columna-ganadores">
+                <h2>Ganadores 🌸</h2>
+                <ul id="lista-ganadores"></ul>
+            </div>
+
+            <div id="columna-descartes">
+                <h2>No vendidos / Ausentes ❌</h2>
+                <ul id="lista-descartes"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Impulsado por Libreria y Bazar Roca Eterna | Olocuita, 2026</p>
+<address>
+    Escríbenos a: 
+    <a href="https://wa.me/50378147401" target="_blank">WhatsApp Roca Eterna</a>
+</address>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
