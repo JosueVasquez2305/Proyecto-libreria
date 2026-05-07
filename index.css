@@ -1,0 +1,68 @@
+/* Obligamos a la raíz a medir toda la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('assets/afiche.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Esto asegura que el body crezca si hay mucho contenido */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* Forzamos al footer a ser transparente y quitar fondos extra */
+footer {
+    background: rgba(0, 0, 0, 0.4);
+    margin-top: auto; /* Esto lo empuja al fondo */
+}
+
+
+main {
+    /* Esto es la clave: le dice al main "ocupa todo el espacio que sobre" */
+    flex-grow: 1; 
+    
+    /* Centramos el contenido dentro del main */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tablero {
+    display: flex;
+    width: 100%;
+    justify-content: space-around; /* Esto separa las dos columnas */
+    padding: 20px;
+    /* Si quieres que las listas tengan un fondo semi-transparente para que se lean mejor: */
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+body {
+    /* Un color de fondo sólido, muy elegante y oscuro */
+    background-color: #0f0f0f; 
+    
+    /* En lugar de una imagen, un degradado sutil que nace del centro */
+    background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+    
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* El número ganador debe "brillar" */
+#numero-sorteado {
+    font-size: 120px; /* ¡Gigante! */
+    font-weight: bold;
+    color: #ff007f; /* El rosa vibrante de tu logo */
+    text-shadow: 0 0 20px rgba(255, 0, 127, 0.5); /* Efecto neón */
+    margin: 40px 0;
+}
+
