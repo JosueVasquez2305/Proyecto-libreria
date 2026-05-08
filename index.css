@@ -4,15 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
-/* Forzamos al footer a ser transparente y quitar fondos extra */
-footer {
-    background: #121212;
-    margin-top: auto; /* Esto lo empuja al fondo */
-}
-
-
 main {
     /* Esto es la clave: le dice al main "ocupa todo el espacio que sobre" */
     flex-grow: 1; 
@@ -23,14 +14,6 @@ main {
     align-items: center;
 }
 
-#tablero {
-    display: flex;
-    width: 100%;
-    justify-content: space-around; /* Esto separa las dos columnas */
-    padding: 20px;
-    /* Si quieres que las listas tengan un fondo semi-transparente para que se lean mejor: */
-    background-color: transparent; 
-}
 body {
     /* Un color de fondo sólido, muy elegante y oscuro */
     background-color: #121212; 
@@ -64,7 +47,7 @@ body {
     margin-top: 20px;
 }
 
-    footer, .tablero, div {
+footer, .tablero, div {
     border: none;           /* Quita cualquier línea de borde */
     outline: none;          /* Quita el resalte al hacer clic */
     box-shadow: none;       /* Quita sombras
@@ -73,49 +56,22 @@ body {
 }
 
 h1 {
-    margin-top: 20px; /* Le das tú el espacio exacto para que se vea */
-    margin-bottom: 20px;
+    margin-top: 5px; /* Le das tú el espacio exacto para que se vea */
+    margin-bottom: 10px;
     text-align: center;
 }
 
-img {
+#logo-grande.logo {
     display: block;
-    margin: 20px auto; /* Lo centra y le da aire arriba y abajo */
-    max-width: 150px;  /* Controlas que no sea gigante */
+    margin: 0px auto; /* Lo centra y le da aire arriba y abajo */
+    max-width: none;  /* Controlas que no sea gigante */
     opacity: 0.5;      /* Lo haces sutil */
+    width: 250px;
+    height: auto;
 }
 
-#tablero {
-    display: flex !important;         /* Esto pone las dos columnas una a la par de la otra */
-    justify-content: space-between !important; /* Esto empuja una a la izquierda y otra a la derecha */
-    width: 45% !important;            /* Para que no queden pegadas a los bordes físicos de la pantalla */
-    margin: 20px auto;     /* Las separa un poco del título y las centra */
-    border: solid lime;
-    min-width: 95vw !important;
-    flex-direction: column !important;
-    gap: 15px !important;
-}
-
-#columna-ganadores, #columna-descartes {
-    width: 100% !important;/* Cada una ocupa casi la mitad del espacio */
-    padding: 15px;
-    border: 1px solid #333; /* Un borde muy sutil para que se distingan del fondo */
-    border-radius: 8px;
-    min-height: 120px !important; /* Para que aunque estén vacías, tengan cuerpo */
-    margin: 0  !important;
-}
 #columna-descartes { background-color: red; }
 #columna-ganadores { background-color: blue; }
-
-#afiche-principal {
-    display: block;          /* Lo convierte en una caja para poder usar márgenes */
-    max-width: 600px;        /* Un tamaño generoso para que se lea la información */
-    width: 80%;              /* Si la pantalla es pequeña, se ajusta automáticamente */
-    margin: 30px auto;       /* Lo separa del título (arriba) y del tablero (abajo) y lo centra */
-    border: 2px solid #333;  /* Un borde sutil para que resalte del fondo oscuro */
-    border-radius: 10px;      /* Bordes redondeados para un toque moderno */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Una sombra suave para que "flote" */
-}
 
 .numero-sorteado {
     font-size: 80px;         /* Un tamaño que nadie pueda ignorar */
@@ -125,128 +81,67 @@ img {
 }
 
 #pantalla-dividida {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    width: 95% !important;
-    margin: 20px auto !important;
-    gap: 20px; /* Espacio entre el afiche y las columnas */
-}
-
-#afiche-principal {
-    width: 45% !important; /* El afiche toma casi la mitad de la pantalla */
-    max-width: 500px;
-    height: auto;
-    /* Aquí le puedes poner la opacidad que mencionaste */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    margin: 20px auto;
+    gap: 60px; /* Espacio entre el afiche y las columnas */
 }
 
 
-#columna-ganadores, #columna-descartes {
-    width: 100% !important; /* Ahora ocupan todo el ancho de su mitad derecha */
-    min-height: 150px;
-}
 
-#contenedor-magico {
-    display: flex !important;
-    flex-direction: row !important; /* Fuerza la fila */
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    width: 95% !important;
-    margin: 0 auto !important;
-}
-
-#afiche-principal {
-    flex-basis: 45% !important; /* Ocupa el 45% de la izquierda */
-    max-width: 45% !important;
-    height: auto;
-}
-
-#tablero {
-    flex-basis: 45% !important; /* Ocupa el 45% de la derecha */
-    display: flex !important;
-    flex-direction: column !important; /* Tus columnas van una sobre otra */
-    gap: 20px !important;
-}
 #contenedor-magico { /* O el nombre que le hayas puesto */
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-around !important; /* Deja espacio igualado a los lados y en medio */
-    align-items: flex-start !important;      /* Alinea ambos arriba */
-    width: 95% !important;
-    margin: 20px auto !important;
-    gap: 30px;                                /* Crea un pasillo de 30px entre el afiche y las columnas */
-}
-#afiche-principal {
-    width: 45% !important;   /* Mantiene su ancho para no apretar a las columnas */
-    
-    /* ESTA ES LA CLAVE: */
-    max-height: 70vh !important; /* 'vh' es el alto de la pantalla. Pruébalo entre 60vh y 80vh */
-    
-    object-fit: contain !important; /* Esto asegura que la imagen se achique para caber en ese alto, SIN estirarse ni deformarse */
-    border-radius: 10px;           /* Para que combine con tus columnas */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Un toque de profundidad */
-}
-
-#contenedor-final { /* El que creaste hoy */
-    display: flex !important;
-    flex-direction: row !important;
-    
-    /* ESTA ES LA CLAVE PARA QUE SE ABRAN: */
-    justify-content: space-between !important; 
-    
-    width: 95% !important;
-    margin: 0 auto !important; /* Centra el contenedor en la pantalla */
-    gap: 0 !important;         /* Quitamos el gap para que el 'space-between' haga su magia */
-}
-#contenedor-final { /* El que creaste hoy */
-    display: flex !important;
-    flex-direction: row !important;
-    
-    /* ESTA ES LA CLAVE PARA QUE SE ABRAN: */
-    justify-content: space-between !important; 
-    
-    width: 95% !important;
-    margin: 0 auto !important; /* Centra el contenedor en la pantalla */
-    gap: 0 !important;         /* Quitamos el gap para que el 'space-between' haga su magia */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* Deja espacio igualado a los lados y en medio */
+    align-items: flex-start;      /* Alinea ambos arriba */
+    width: 95%;
+    margin: 5px auto;
+    gap: 5px;                                /* Crea un pasillo de 30px entre el afiche y las columnas */
 }
 
 #columna-ganadores, #columna-descartes {
-    width: 100% !important; 
+    width: 100%; 
     
     /* CONTROL DE ALTURA */
-    height: 35vh !important;    /* Cada columna ocupará el 35% de la altura de la pantalla */
-    overflow-y: auto !important; /* Si hay muchos nombres, sale scroll interno */
-    
+    height: 30vh;    /* Cada columna ocupará el 35% de la altura de la pantalla */
+    overflow-y: auto; /* Si hay muchos nombres, sale scroll interno */
     /* ESTÉTICA */
-    padding: 15px !important;
-    border: 2px solid #333 !important;
-    border-radius: 8px !important;
-    background-color: #1a1a1a !important; /* Un gris un poco más claro que el fondo */
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #1a1a1a; /* Un gris un poco más claro que el fondo */
 }
 
 /* 1. EL CONTENEDOR QUE MANDA (TU ARMONÍA) */
 #contenedor-final { 
-    display: flex !important;
-    flex-direction: row !important; /* Fuerza a que estén uno al lado del otro */
-    justify-content: space-between !important; 
-    align-items: flex-start !important; /* Alinea arriba para que no floten */
-    width: 95% !important;
-    margin: 20px auto !important;
+    display: flex;
+    flex-direction: row; /* Fuerza a que estén uno al lado del otro */
+    justify-content: space-between; 
+    align-items: flex-start; /* Alinea arriba para que no floten */
+    width: 95%;
+    margin: 20px auto;
 }
 
 /* 2. EL AFICHE (LADO IZQUIERDO) */
-#afiche-principal {
-    width: 45% !important;   
-    max-height: 70vh !important; 
-    object-fit: contain !important; /* Evita que se estire feo */
+#afiche-principal.img-responsiva {
+    width: 45% ;   
+    max-height: 65vh ; 
+    object-fit: contain ; /* Evita que se estire feo */
     border-radius: 10px;
 }
 
 /* 3. EL TABLERO DE COLUMNAS (LADO DERECHO) */
 #tablero {
-    width: 45% !important; 
-    display: flex !important;
-    flex-direction: column !important; /* Pone una columna sobre la otra en su mitad */
-    gap: 20px !important;
+    width: 45%; 
+    display: flex;
+    flex-direction: column; /* Pone una columna sobre la otra en su mitad */
+    gap: 20px;
 }
 
+footer {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
