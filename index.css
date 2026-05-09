@@ -35,7 +35,10 @@ body {
     font-weight: bold;
     color: #ff007f; /* El rosa vibrante de tu logo */
     text-shadow: 0 0 20px rgba(255, 0, 127, 0.5); /* Efecto neón */
-    margin: 40px 0;
+    margin: -10px -10px;
+    width: 100%;
+    text-align: center;
+    display: block;
 }
  
 
@@ -44,7 +47,7 @@ body {
     font-size: 3rem;
     font-weight: bold;
     color: #e74c3c; /* Un rojo para que resalte el ganador */
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 footer, .tablero, div {
@@ -53,6 +56,10 @@ footer, .tablero, div {
     box-shadow: none;       /* Quita sombras
  que hacen que parezca un sticker */
     background-color: transparent;
+     margin-top: auto;
+    padding: 10px;
+     z-index: 10;
+      text-align: center;
 }
 
 h1 {
@@ -63,42 +70,50 @@ h1 {
 
 #logo-grande.logo {
     display: block;
-    margin: 0px auto; /* Lo centra y le da aire arriba y abajo */
+    margin: 5px auto; /* Lo centra y le da aire arriba y abajo */
     max-width: none;  /* Controlas que no sea gigante */
-    opacity: 0.5;      /* Lo haces sutil */
-    width: 250px;
+    opacity: 0.6;      /* Lo haces sutil */
+    width: 180px;
     height: auto;
 }
 
 #columna-descartes { background-color: red; }
 #columna-ganadores { background-color: blue; }
 
-.numero-sorteado {
-    font-size: 80px;         /* Un tamaño que nadie pueda ignorar */
-    color: #f1c40f;          /* Un color dorado o llamativo */
+#numero-sorteado {
+    font-size: 100px;         /* Un tamaño que nadie pueda ignorar */
+    font-weight: bold;
+    color: #e00eac;          /* Un color dorado o llamativo */
     text-shadow: 0 0 20px rgba(241, 196, 15, 0.5); /* Que brille */
+    margin: 10px 0;
     transition: all 0.5s ease;
+    width: 100%;
+    text-align: center;
+    display: block;
 }
 
 #pantalla-dividida {
     display: flex;
+    flex: 1;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    width: 95%;
-    margin: 20px auto;
+    align-items: center;
+    width: 100%;
+    margin: 0px auto;
     gap: 60px; /* Espacio entre el afiche y las columnas */
+   
 }
-
-
 
 #contenedor-magico { /* O el nombre que le hayas puesto */
     display: flex;
     flex-direction: row;
     justify-content: space-around; /* Deja espacio igualado a los lados y en medio */
     align-items: flex-start;      /* Alinea ambos arriba */
+    height: 50vh;
     width: 95%;
     margin: 5px auto;
-    gap: 5px;                                /* Crea un pasillo de 30px entre el afiche y las columnas */
+    gap: 15px;   
+    margin-top: 5px;                             /* Crea un pasillo de 30px entre el afiche y las columnas */
 }
 
 #columna-ganadores, #columna-descartes {
@@ -112,6 +127,10 @@ h1 {
     border: 2px solid #333;
     border-radius: 8px;
     background-color: #1a1a1a; /* Un gris un poco más claro que el fondo */
+    scrollbar-gutter: stable;
+    flex: 1;
+    overflow-y: auto!important;
+    min-height: 50%;
 }
 
 /* 1. EL CONTENEDOR QUE MANDA (TU ARMONÍA) */
@@ -126,22 +145,99 @@ h1 {
 
 /* 2. EL AFICHE (LADO IZQUIERDO) */
 #afiche-principal.img-responsiva {
-    width: 45% ;   
-    max-height: 65vh ; 
+    width: auto ;   
+    max-height: 100% ; 
     object-fit: contain ; /* Evita que se estire feo */
     border-radius: 10px;
 }
 
 /* 3. EL TABLERO DE COLUMNAS (LADO DERECHO) */
 #tablero {
+    height: 100% ;
     width: 45%; 
+    max-height: 60vh;
     display: flex;
     flex-direction: column; /* Pone una columna sobre la otra en su mitad */
-    gap: 20px;
+    gap: 15px;
+    align-items: stretch;
+    overflow: hidden;
 }
 
-footer {
-    padding: 20px;
-    text-align: center;
+#contenedor-botones.botones{
+  display: flex;
+    gap: 15px; /* Espacio entre el botón de Girar y el de Reiniciar */
+    margin-bottom: 10px;
     width: 100%;
+    justify-content: center;  
+}
+
+/* Personalizar el scroll para Chrome/Edge/Safari */
+#columna-ganadores::-webkit-scrollbar, 
+#columna-descartes::-webkit-scrollbar {
+    width: 6px; /* Muy delgada */
+}
+
+#columna-ganadores::-webkit-scrollbar-thumb, 
+#columna-descartes::-webkit-scrollbar-thumb {
+    background: #ff007f; /* El rosa de tu logo */
+    border-radius: 10px;
+}
+
+#columna-ganadores::-webkit-scrollbar-track, 
+#columna-descartes::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+#botones{
+   display: flex;
+    flex-wrap: wrap; /* Si no caben en una línea, saltan a la siguiente */
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#botones.contenedor-botones {
+    flex: 1 1 45%; /* Los botones intentarán ocupar el 45% del ancho cada uno (2 por fila) */
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* El truco del scroll que hablamos antes */
+#columna-ganadores, #columna-descartes {
+    height: 25vh; /* Bajamos un poco la altura para que quepan los botones arriba */
+    overflow-y: auto;
+    scrollbar-gutter: stable; /* Evita que el contenido "baile" cuando sale el scroll */
+}
+
+#afiche-principal.img-responsiva {
+    max-height: 50vh; /* Bajamos de 65 a 50 para dar aire */
+    width: auto;
+}
+
+#columna-ganadores, #columna-descartes {
+    height: 20vh; /* Bajamos a 20vh para que el footer no empuje hacia abajo */
+    overflow-y: auto;
+}
+
+#pantalla-rifa {
+    margin-bottom: 0px !important; /* Quitamos el espacio de abajo */
+}
+
+@media (max-height: 600px) {
+    #logo-grande {
+        display: none; /* Oculta el logo si la ventana es muy bajita */
+    }
+    #numero-sorteado {
+        font-size: 60px; /* Reduce el número a la mitad */
+    }
+}
+
+#configuracion {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#numero-sorteado {
+    font-size: 80px!important;
+    margin: 5px 0!important;
+    line-height: 1;
 }
