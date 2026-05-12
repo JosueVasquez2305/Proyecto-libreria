@@ -159,3 +159,11 @@ footer {
     #numero-sorteado { font-size: 60px ; }
     #contenedor-magico { height: 45vh; }
 }
+
+span,#numero-grande-rosa {
+  color: #fff; 
+  font-weight: bold;
+  text-shadow: 0 0 8px #d10056, 0 0 15px #d10056; /* Efecto neón rosa */  
+ border-bottom: 2px solid #ff4d94; /* Línea más gruesa y del mismo color */
+ display: inline-block; /* ¡IMPORTANTE! Ayuda a que los márgenes y bordes se apliquen mejor */
+}
